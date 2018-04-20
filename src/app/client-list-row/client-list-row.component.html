@@ -1,0 +1,12 @@
+
+  <td>{{client._id.$oid}}</td>
+  <td>{{client.nom | uppercase }}</td>
+  <td>{{client.prenom}}</td>
+  <td>{{client.age}}</td>
+  <td>{{client.ca | confidential }}</td>
+  <td>{{client.dateAjout | date:'longDate' }}</td>
+  <td>
+    <button (click)="view()">VoirClientByEvent</button>
+    <button routerLink="/view/{{client._id.$oid}}">VoirClientByRouting</button>
+    <button (click)="delete()">Supprimer</button>
+  </td>

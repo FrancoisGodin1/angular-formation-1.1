@@ -1,0 +1,6 @@
+<h2>Fiche client</h2>
+<p> Client numéro : {{client._id.$oid}}</p>
+<p>{{client.nom | uppercase }} {{client.prenom}} agé de {{client.age}} ans</p>
+<p>Chiffre d'affaire : {{client.ca | confidential }}</p>
+<p>Ajouté le : {{client.dateAjout | date:'longDate' }}</p>
+

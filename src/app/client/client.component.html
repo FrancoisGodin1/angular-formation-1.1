@@ -1,0 +1,13 @@
+<p>Prenom du client : {{ client.prenom }} </p>
+
+<p>
+    age : <span [style.fontSize]="taille"> {{ client.age }} </span>
+</p>
+<p [hidden]="client.vip"> CLIENT VIP</p>
+
+<button (click)="incrementerAge()">Augmenter age </button> 
+<button (click)="decrementerAge()">Réduire age </button>
+<button (click)="changerVip()">changer statut vip </button>  
+
+<h3 *ngIf="client.age >= 18">client majeur ! </h3>
+<img *ngIf="client.age >= 18" src="assets/pegi18.jpg">

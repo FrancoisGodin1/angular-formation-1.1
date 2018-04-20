@@ -1,0 +1,35 @@
+<h2>Ajout d'un client</h2>
+<form [formGroup]='clientForm' (ngSubmit)='ajouterClient()'>
+  <fieldset formGroupName='identite'>
+    <div>
+      <label>Prenom: </label>
+      <input type="text" formControlName='prenom'>
+    </div>
+    <div *ngIf="prenomControl.invalid && prenomControl.dirty">
+      <p *ngIf="prenomControl.errors.required">prenom obligatoire</p>
+    </div>
+    <div>
+      <label>Nom: </label>
+      <input type="text" formControlName='nom'>
+    </div>
+    <div *ngIf="nomControl.invalid && nomControl.dirty">
+      <p *ngIf="nomControl.errors.required">Nom obligatoire</p>
+      <p *ngIf="nomControl.errors.minlength">nom trop court</p>
+      <p *ngIf="nomControl.errors.maxlength">nom trop long</p>
+    </div>
+  </fieldset>
+  <div>
+      <label>Age: </label>
+      <input type="number" formControlName='age'>
+    </div>
+    <div>
+      <label>Chiffer d'affaire: </label>
+      <input type="number" formControlName='ca'>
+    </div>
+    <div>
+      <label>VIP: </label>
+      <input type="checkbox" formControlName='vip'>
+    </div>
+    <button type="submit" [disabled]="!clientForm.valid">Ajouter</button>
+    <!-- <div>{{ clientForm.value | json }}</div> -->
+</form>

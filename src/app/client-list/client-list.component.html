@@ -1,0 +1,21 @@
+<h1>Liste des Clients</h1>
+<table border="1">
+  <tr>
+    <th>NumClient</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Age</th>
+    <th>CA</th>
+    <th>date Ajout</th>
+    <th>...</th>
+  </tr>
+  <tr app-client-list-row 
+      *ngFor="let client of clients | async" 
+      [client]="client"
+      (clientSelected)="setSelectedClient($event)"
+      (clientDeleted)="deleteClient($event)"
+      [ngClass]="{'rouge': client.ca < 1000,'vert' : client.ca > 1000}">
+  </tr>
+</table>
+<app-client-view *ngIf='clientSelected' [client]='clientSelected'></app-client-view>
+<!-- <app-client-add></app-client-add> -->
